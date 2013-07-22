@@ -1,1 +1,0 @@
-mytextclock = awful.widget.textclock()
