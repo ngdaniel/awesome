@@ -53,8 +53,17 @@ for s = 1, screen.count() do
     left_layout:add(mytaglist[s])
 
     local right_layout = wibox.layout.fixed.horizontal()
-    right_layout:add(mytextclock)
+    right_layout:add(seperator)
+    right_layout:add(wifiwidget)
+    right_layout:add(seperator)
+    right_layout:add(cpuwidget)
+    right_layout:add(seperator)
+    right_layout:add(datewidget)
+    right_layout:add(seperator)
     right_layout:add(mylayoutbox[s])
+    right_layout:add(seperator)
+    right_layout:add(battwidgettext)
+    right_layout:add(battwidget)
 
     local layout = wibox.layout.align.horizontal()
 
