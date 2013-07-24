@@ -2,12 +2,12 @@ theme = {}
 
 dir					= "~/.config/awesome/themes/default/"
 theme.font      			= "Termsynu 11"
-theme.wallpaper 			= "~/Pictures/Wallpapers/panda.png"
+theme.wallpaper 			= "~/Pictures/Wallpapers/daftpunk2.jpg"
 
 theme.tasklist_disable_icon 		= true
 
-theme.bg_normal     			= "#141414"
-theme.bg_focus      			= "#222222"
+theme.bg_normal     			= "#222222"
+theme.bg_focus      			= "#343434"
 theme.bg_urgent				= "#ff0000"
 theme.bg_minimize   			= "#22222200"
 theme.bg_systray    			= "#00000000"
@@ -25,6 +25,9 @@ theme.border_marked			= "#91231c"
 theme.menu_height			= 20
 theme.menu_width			= 150
 theme.menu_border_width			= 0
+theme.menu_bg_normal			= theme.border_normal
+theme.menu_bg_focus			= theme.bg_normal
+
 
 theme.taglist_squares_sel   		= dir .. "taglist/squarefw.png"
 theme.taglist_squares_unsel 		= dir .. "taglist/squarew.png"

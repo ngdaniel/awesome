@@ -1,6 +1,6 @@
 beautiful = require ("beautiful")
 
-dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
+dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.border_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_normal .."' -sf '".. beautiful.fg_focus .."'"
 
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
