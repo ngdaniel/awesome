@@ -1,6 +1,6 @@
 beautiful = require ("beautiful")
 
-dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.border_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_normal .."' -sf '".. beautiful.fg_focus .."'"
+dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
 
 root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -62,6 +62,15 @@ globalkeys = awful.util.table.join(
 		awful.layout.arrange(mouse.screen)
     end),
 
+    -- System
+	awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 1") awful.util.spawn("pamixer --unmute") end),
+	awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 1") awful.util.spawn("pamixer --unmute") end),
+	awful.key({         "Shift"   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 5") awful.util.spawn("pamixer --unmute") end),
+	awful.key({         "Shift"   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 5") awful.util.spawn("pamixer --unmute") end),
+	awful.key({                   }, "XF86AudioMute", function() awful.util.spawn("pamixer --toggle-mute") end),
+
+
+
     -- Make everything ultra minimal:
     awful.key({ modkey }, "Escape", function ()
         awful.util.spawn_with_shell("killall conky")
@@ -73,8 +82,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "p",
         function () awful.util.spawn(dmenu_prompt)
         end),
-    
-    -- Standard
 
     -- Applications
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end)

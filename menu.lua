@@ -83,5 +83,5 @@ mymainmenu = awful.menu({ items = {
     { "SYSTEM", nil, beautiful.pref_icon },
     { "Tools", mysystools},
     { "Reboot", "systemctl reboot"},
-    { "Shutdown", "systemctl shutdown"}
+    { "Shutdown", "systemctl poweroff"}
 }})
