@@ -42,7 +42,7 @@ cpuwidget = awful.widget.graph()
 cpuwidget:set_width(50)
 cpuwidget:set_background_color(beautiful.widget_background)
 cpuwidget:set_color("#AECF96")
-vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 10, "wlp3s0")
 
 wifiicon = wibox.widget.imagebox()
 vicious.register(wifiicon, vicious.widgets.wifi,
@@ -57,24 +57,31 @@ vicious.register(wifiicon, vicious.widgets.wifi,
 	else
 	    widget:set_image(beautiful.wifi_no_icon)
 	end
-    end, 5, "wlp3s0")
+    end, 10, "wlp3s0")
 
 wifiwidget = wibox.widget.textbox()
 vicious.register(wifiwidget, vicious.widgets.wifi, "<span color='".. beautiful.fg_focus .."'>${ssid}</span>", 5, "wlp3s0")
 
 volumeicon = wibox.widget.imagebox()
 volumeicon:set_image(beautiful.volume_icon)
+vicious.register(volumeicon, vicious.widgets.volume,
+    function (widget, args)
+        if(args[2] == "♩") then
+            widget:set_image(beautiful.volume_mute_icon)
+        else
+			if args[1] ~= 0 then
+            	widget:set_image(beautiful.volume_icon)
+			else
+            	widget:set_image(beautiful.volume_mute_icon)
+			end
+        end
+    end, 0.5, "Master -c0")
 
-volumewidget = awful.widget.progressbar()
-volumewidget:set_width(8)
-volumewidget:set_height(20)
-volumewidget:set_vertical(true)
-volumewidget:set_background_color(beautiful.widget_background)
-volumewidget:set_color("#8888ff")
+volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume,
     function (widget, args)
         if(args[2] == "♩") then
-            return 0
+            return "mute"
         end
-        return args[1]
+        return "<span color='" .. beautiful.fg_focus .. "'>" .. args[1] .. "%</span>"
     end, 0.5, "Master -c0")

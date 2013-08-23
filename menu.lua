@@ -62,15 +62,13 @@ myaweconfig = {
 }
 
 mysystools = {
-   { "wifi", "ec_wifimanager"},
-   { "sound", "ec_soundmanager"},
    { "display", "arandr"},
    { "awesome", myaweconfig}
 }
 
 mymainmenu = awful.menu({ items = { 
     { "APPS", nil, beautiful.app_icon },		  	    
-    { "File Manager", "ec_filemanager"},
+    { "File Manager", "thunar"},
     { "Terminals", myterminalmenu},
     { "Editors", myeditormenu},
     { "Internet", myinternetmenu},

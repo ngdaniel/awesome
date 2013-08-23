@@ -1,7 +1,6 @@
 -- Standard awesome library
 gears = require("gears")
 awful = require("awful")
-awful.util.spawn_with_shell("xcompmgr -cF &")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library

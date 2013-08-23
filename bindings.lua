@@ -68,7 +68,8 @@ globalkeys = awful.util.table.join(
 	awful.key({         "Shift"   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 5") awful.util.spawn("pamixer --unmute") end),
 	awful.key({         "Shift"   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 5") awful.util.spawn("pamixer --unmute") end),
 	awful.key({                   }, "XF86AudioMute", function() awful.util.spawn("pamixer --toggle-mute") end),
-
+	awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
+	awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
 
 
     -- Make everything ultra minimal:

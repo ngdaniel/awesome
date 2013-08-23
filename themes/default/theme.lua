@@ -1,78 +1,85 @@
 theme = {}
 
-dir					        = "~/.config/awesome/themes/default/"
-theme.font      			= "Termsynu 11"
-theme.wallpaper 			= "~/Pictures/Wallpapers/daftpunk.jpg"
+dir                                     = "~/.config/awesome/themes/default/"
+size                                    = "16x16"
+tag_dir                                 = dir .. "taglist/" .. size .. "/"
+menu_dir                                = dir .. "icons/menu/" .. size .. "/"
+layout_dir				= dir .. "layouts/" .. size .. "/"
+widget_dir                              = dir .. "icons/widgets/" .. size .. "/"
 
-theme.tasklist_disable_icon = true
+theme.font                              = "Termsynu 11"
+theme.wallpaper                         = "~/Pictures/Wallpapers/3dmountain.jpg"
 
-theme.bg_normal     		= "#141414bb"
-theme.bg_focus      		= "#242424"
-theme.bg_urgent				= "#ff0000"
-theme.bg_minimize   		= "#00000000"
-theme.bg_systray    		= "#00000000"
+theme.tasklist_disable_icon             = true
 
-theme.fg_normal     		= "#888888"
-theme.fg_focus      		= "#cccccc"
-theme.fg_urgent     		= "#dddddd"
-theme.fg_minimize   		= "#666666"
+theme.bg_normal                         = "#101010"
+theme.bg_focus                          = "#202020"
+theme.bg_urgent                         = "#ff0000"
+theme.bg_minimize                       = "#00000000"
+theme.bg_systray                        = "#00000000"
 
-theme.border_width  		= 2
-theme.border_normal 		= theme.bg_normal
-theme.border_focus  		= theme.bg_normal
-theme.border_marked			= "#91231c"
+theme.fg_normal                         = "#888888"
+theme.fg_focus                          = "#cccccc"
+theme.fg_urgent                         = "#dddddd"
+theme.fg_minimize                       = "#666666"
 
-theme.menu_height			= 20
-theme.menu_width			= 150
-theme.menu_border_width		= 0
-theme.menu_bg_normal		= theme.bg_normal
-theme.menu_bg_focus			= theme.bg_focus
+theme.border_width                      = 0
+theme.border_normal                     = theme.bg_normal
+theme.border_focus                      = theme.bg_normal
+theme.border_marked                     = "#91231c"
 
+theme.menu_height                       = 16
+theme.menu_width                        = 150
+theme.menu_border_width                 = 0
+theme.menu_bg_normal                    = theme.bg_normal
+theme.menu_bg_focus                     = theme.bg_focus
 
-theme.taglist_squares_sel   = dir .. "taglist/squarefw.png"
-theme.taglist_squares_unsel = dir .. "taglist/squarew.png"
+theme.menu_submenu_icon                 = dir .. "submenu" .. size .. ".png"
 
-theme.awesome_icon			= dir .. "icons/widgets/awesome.png"
-theme.menu_submenu_icon 	= dir .. "submenu.png"
+theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
+theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
 
-theme.app_icon 				= dir .. "icons/menu/apps.png"
-theme.pref_icon 		  	= dir .. "icons/menu/pref.png"
+theme.awesome_icon                      = widget_dir .. "awesome.png"
 
-theme.widget_background		= theme.bg_focus
+theme.app_icon                          = menu_dir .. "apps.png"
+theme.pref_icon                         = menu_dir .. "pref.png"
 
-theme.seperator_icon 	    = dir .. "icons/widgets/seperator.png"
+theme.widget_background                 = theme.bg_focus
 
-theme.batt_charging_icon	= dir .. "icons/widgets/batt_charging.png"  
-theme.batt_discharging_icon	= dir .. "icons/widgets/batt_discharging.png"  
-theme.batt_color			= "#AECF96"
-theme.batt_low_color		= "#DD4940"
+theme.seperator_icon                    = widget_dir .. "seperator.png"
 
-theme.cpu_icon				= dir .. "icons/widgets/cpu.png"
+theme.batt_charging_icon                = widget_dir .. "batt_charging.png"  
+theme.batt_discharging_icon             = widget_dir .. "batt_discharging.png"  
+theme.batt_color                        = "#AECF96"
+theme.batt_low_color                    = "#DD4940"
 
-theme.wifi_hi_icon			= dir .. "icons/widgets/wifi_hi.png"
-theme.wifi_med_icon			= dir .. "icons/widgets/wifi_med.png"
-theme.wifi_low_icon			= dir .. "icons/widgets/wifi_low.png"
-theme.wifi_no_icon			= dir .. "icons/widgets/wifi_no.png"
+theme.cpu_icon                          = widget_dir .. "cpu.png"
 
-theme.volume_icon           = dir .. "icons/widgets/volume.png"
+theme.wifi_hi_icon                      = widget_dir .. "wifi_hi.png"
+theme.wifi_med_icon                     = widget_dir .. "wifi_med.png"
+theme.wifi_low_icon                     = widget_dir .. "wifi_low.png"
+theme.wifi_no_icon                      = widget_dir .. "wifi_no.png"
 
-theme.titlebar_close_button_normal 	= dir .. "titlebar/close_normal.png"
-theme.titlebar_close_button_focus  	= dir .. "titlebar/close_focus.png"
+theme.volume_icon                       = widget_dir .. "volume.png"
+theme.volume_mute_icon                  = widget_dir .. "volume_mute.png"
 
-theme.layout_fairh 			= dir .. "layouts/fairh.png"
-theme.layout_fairv 			= dir .. "layouts/fairv.png"
-theme.layout_floating  		= dir .. "layouts/floating.png"
-theme.layout_magnifier 		= dir .. "layouts/magnifier.png"
-theme.layout_max 			= dir .. "layouts/max.png"
-theme.layout_fullscreen 	= dir .. "layouts/fullscreen.png"
-theme.layout_tilebottom 	= dir .. "layouts/tilebottom.png"
-theme.layout_tileleft   	= dir .. "layouts/tileleft.png"
-theme.layout_tile 			= dir .. "layouts/tileright.png"
-theme.layout_tiletop 		= dir .. "layouts/tiletop.png"
-theme.layout_spiral  		= dir .. "layouts/spiral.png"
-theme.layout_dwindle 		= dir .. "layouts/dwindle.png"
+theme.titlebar_close_button_normal      = dir .. "titlebar/close_normal.png"
+theme.titlebar_close_button_focus       = dir .. "titlebar/close_focus.png"
 
-theme.icon_theme 			= "/usr/share/icons/Faenza"
+theme.layout_fairh                      = layout_dir .. "fairh.png"
+theme.layout_fairv                      = layout_dir .. "fairv.png"
+theme.layout_floating                   = layout_dir .. "floating.png"
+theme.layout_magnifier                  = layout_dir .. "magnifier.png"
+theme.layout_max                        = layout_dir .. "max.png"
+theme.layout_fullscreen                 = layout_dir .. "fullscreen.png"
+theme.layout_tilebottom                 = layout_dir .. "tilebottom.png"
+theme.layout_tileleft                   = layout_dir .. "tileleft.png"
+theme.layout_tile                       = layout_dir .. "tileright.png"
+theme.layout_tiletop                    = layout_dir .. "tiletop.png"
+theme.layout_spiral                     = layout_dir .. "spiral.png"
+theme.layout_dwindle                    = layout_dir .. "dwindle.png"
+
+theme.icon_theme                        = "/usr/share/icons/Faenza"
 
 return theme
 
