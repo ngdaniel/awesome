@@ -13,7 +13,6 @@ awful.rules.rules = {
     },
 }
 
--- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     c:connect_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier

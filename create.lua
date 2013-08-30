@@ -34,8 +34,6 @@ mytasklist.buttons = awful.util.table.join(
         if client.focus then client.focus:raise() end
     end))
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
 for s = 1, screen.count() do
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -46,11 +44,9 @@ for s = 1, screen.count() do
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
-    mywibox[s] = awful.wibox({ position = "top", height=beautiful.menu_height, screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height=beautiful.menu_height, screen = s, border_width=0})
 
     local left_layout = wibox.layout.fixed.horizontal()
-    left_layout:add(mylauncher)
-    left_layout:add(seperator)
     left_layout:add(mytaglist[s])
     left_layout:add(seperator)
 

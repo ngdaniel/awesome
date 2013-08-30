@@ -52,7 +52,21 @@ mymultimediamenu = {
 }
 
 myaccessoriesmenu = {
+}
 
+exec = {
+    { "Terminals", myterminalmenu},
+    { "Editors", myeditormenu},
+    { "Internet", myinternetmenu},
+    { "Office", myofficemenu},
+    { "Multimedia", mymultimediamenu},
+    { "Graphics", mygraphicsmenu},
+    { "Games", mygamemenu},
+    { "Programming", myprogrammingmenu},
+    { "Accessories", myaccessoriesmenu},
+}
+
+config = {
 }
 
 myaweconfig = {
@@ -67,18 +81,9 @@ mysystools = {
 }
 
 mymainmenu = awful.menu({ items = { 
-    { "APPS", nil, beautiful.app_icon },		  	    
-    { "File Manager", "thunar"},
-    { "Terminals", myterminalmenu},
-    { "Editors", myeditormenu},
-    { "Internet", myinternetmenu},
-    { "Office", myofficemenu},
-    { "Multimedia", mymultimediamenu},
-    { "Graphics", mygraphicsmenu},
-    { "Games", mygamemenu},
-    { "Programming", myprogrammingmenu},
-    { "Accessories", myaccessoriesmenu},
-    { "SYSTEM", nil, beautiful.pref_icon },
+    { "File Manager", "urxvt -e ranger"},
+    { "Executables", exec},
+    { "Configs", config},
     { "Tools", mysystools},
     { "Reboot", "systemctl reboot"},
     { "Shutdown", "systemctl poweroff"}

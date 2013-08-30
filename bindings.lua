@@ -1,9 +1,10 @@
 beautiful = require ("beautiful")
 
-dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
+dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_focus .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
+
+dmenu_prompt_hidden = "dmenu_run -y 0 -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_focus .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
 
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -43,18 +44,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift", "Control" }, "Escape", awesome.quit),
 
     -- Change layout
-    awful.key({ modkey,                    }, "F1",    function () awful.layout.set(awful.layout.suit.tile) end),
-    awful.key({ modkey, "Shift",           }, "F1",    function () awful.layout.set(awful.layout.suit.tile.left) end),
-    awful.key({ modkey,          "Control" }, "F1",    function () awful.layout.set(awful.layout.suit.tile.bottom) end),
-    awful.key({ modkey, "Shift", "Control" }, "F1",    function () awful.layout.set(awful.layout.suit.tile.top) end),
+    awful.key({ modkey,                    }, "F1",    function () awful.layout.set(awful.layout.suit.tile.right) end),
+    awful.key({ modkey, "Shift",           }, "F1",    function () awful.layout.set(awful.layout.suit.tile.top) end),
     awful.key({ modkey,                    }, "F2",    function () awful.layout.set(awful.layout.suit.max) end),
     awful.key({ modkey, "Shift",           }, "F2",    function () awful.layout.set(awful.layout.suit.max.fullscreen) end),
-    awful.key({ modkey,                    }, "F3",    function () awful.layout.set(awful.layout.suit.fair.horizontal) end),
-    awful.key({ modkey, "Shift",           }, "F3",    function () awful.layout.set(awful.layout.suit.fair) end),
-    awful.key({ modkey,                    }, "F4",    function () awful.layout.set(awful.layout.suit.spiral) end),
-    awful.key({ modkey, "Shift",           }, "F4",    function () awful.layout.set(awful.layout.suit.spiral.dwindle) end),
-    awful.key({ modkey,                    }, "F5",    function () awful.layout.set(awful.layout.suit.magnifier) end),
-    awful.key({ modkey,                    }, "grave", function () awful.layout.set(awful.layout.suit.floating) end),
+    awful.key({ modkey,                    }, "F3",    function () awful.layout.set(awful.layout.suit.fair) end),
+    awful.key({ modkey, "Shift",           }, "F3",    function () awful.layout.set(awful.layout.suit.fair.horizontal) end),
+    awful.key({ modkey,                    }, "F4",    function () awful.layout.set(awful.layout.suit.floating) end),
+    awful.key({ modkey, "Shift",           }, "F4",    function () awful.layout.set(awful.layout.suit.magnifier) end),
 
     --awful.key({ modkey, "Control"          }, "n", awful.client.restore),
     awful.key({ modkey }, "b", function ()
@@ -80,17 +77,24 @@ globalkeys = awful.util.table.join(
     end),
 
     -- dmenu prompt
-    awful.key({ modkey,           }, "p",
-        function () awful.util.spawn(dmenu_prompt)
+    awful.key({ modkey,           }, "e",
+        function () 
+            if mywibox[mouse.screen].visible then
+                awful.util.spawn(dmenu_prompt)
+            else
+                awful.util.spawn(dmenu_prompt_hidden);
+            end
         end),
 
     -- Applications
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end)
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey,           }, "v", function () awful.util.spawn(terminal .. " -e vim") end),
+    awful.key({ modkey,           }, "r", function () awful.util.spawn(terminal .. " -e ranger") end),
+    awful.key({ modkey,           }, "g", function () awful.util.spawn("google-chrome") end)
 )
 
-local fm = 48
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, "Shift"   }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),

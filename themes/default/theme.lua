@@ -8,12 +8,12 @@ layout_dir				= dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "icons/widgets/" .. size .. "/"
 
 theme.font                              = "Termsynu 11"
-theme.wallpaper                         = "~/Pictures/Wallpapers/3dmountain.jpg"
+theme.wallpaper                         = "~/Pictures/Wallpapers/hill.jpg"
 
 theme.tasklist_disable_icon             = true
 
 theme.bg_normal                         = "#101010"
-theme.bg_focus                          = "#202020"
+theme.bg_focus                          = "#101010"
 theme.bg_urgent                         = "#ff0000"
 theme.bg_minimize                       = "#00000000"
 theme.bg_systray                        = "#00000000"
@@ -32,7 +32,7 @@ theme.menu_height                       = 16
 theme.menu_width                        = 150
 theme.menu_border_width                 = 0
 theme.menu_bg_normal                    = theme.bg_normal
-theme.menu_bg_focus                     = theme.bg_focus
+theme.menu_bg_focus                     = theme.bg_focus 
 
 theme.menu_submenu_icon                 = dir .. "submenu" .. size .. ".png"
 
@@ -44,7 +44,7 @@ theme.awesome_icon                      = widget_dir .. "awesome.png"
 theme.app_icon                          = menu_dir .. "apps.png"
 theme.pref_icon                         = menu_dir .. "pref.png"
 
-theme.widget_background                 = theme.bg_focus
+theme.widget_background                 = "000000"
 
 theme.seperator_icon                    = widget_dir .. "seperator.png"
 

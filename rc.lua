@@ -16,7 +16,7 @@ menubar = require("menubar")
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+                     text = awesome.startup_errors, timeout = 5})
 end
 
 -- Handle runtime errors after startup
@@ -29,12 +29,12 @@ do
 
         naughty.notify({ preset = naughty.config.presets.critical,
                          title = "Oops, an error happened!",
-                         text = err })
+                         text = err, timeout = 5})
         in_error = false
     end)
 end
 
--- DELICIOUS GLOBALS
+-- GLOBALS
 config_dir = awful.util.getdir("config")
 
 -- THEME
