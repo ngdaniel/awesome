@@ -61,6 +61,15 @@ vicious.register(wifiicon, vicious.widgets.wifi,
 
 wifiwidget = wibox.widget.textbox()
 vicious.register(wifiwidget, vicious.widgets.wifi, "<span color='".. beautiful.fg_focus .."'>${ssid}</span>", 5, "wlp3s0")
+vicious.register(wifiwidget, vicious.widgets.wifi,
+    function (widget, args)
+        ssid = args['{ssid}']
+        if (ssid == "N/A") then
+            return "<span color='" .. beautiful.fg_focus .. "'>N/A</span>"
+        else
+            return "<span color='" .. beautiful.fg_focus .. "'>" .. ssid .. "</span>"
+        end
+    end,  5, "wlp3s0")
 
 volumeicon = wibox.widget.imagebox()
 volumeicon:set_image(beautiful.volume_icon)

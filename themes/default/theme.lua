@@ -5,8 +5,7 @@ size                                    = "16x16"
 tag_dir                                 = dir .. "taglist/" .. size .. "/"
 menu_dir                                = dir .. "icons/menu/" .. size .. "/"
 layout_dir				= dir .. "layouts/" .. size .. "/"
-widget_dir                              = dir .. "icons/widgets/" .. size .. "/"
-
+widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
 theme.font                              = "Termsynu 11"
 theme.wallpaper                         = "~/Pictures/Wallpapers/hill.jpg"
 
@@ -23,9 +22,9 @@ theme.fg_focus                          = "#cccccc"
 theme.fg_urgent                         = "#dddddd"
 theme.fg_minimize                       = "#666666"
 
-theme.border_width                      = 0
-theme.border_normal                     = theme.bg_normal
-theme.border_focus                      = theme.bg_normal
+theme.border_width                      = 1
+theme.border_normal                     = "#101010"
+theme.border_focus                      = "#333333"
 theme.border_marked                     = "#91231c"
 
 theme.menu_height                       = 16
@@ -44,7 +43,7 @@ theme.awesome_icon                      = widget_dir .. "awesome.png"
 theme.app_icon                          = menu_dir .. "apps.png"
 theme.pref_icon                         = menu_dir .. "pref.png"
 
-theme.widget_background                 = "000000"
+theme.widget_background                 = "#000000"
 
 theme.seperator_icon                    = widget_dir .. "seperator.png"
 

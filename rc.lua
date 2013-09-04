@@ -55,7 +55,6 @@ end
 
 -- Include everything
 require("tags")
-require("menu")
 require("widgets")
 require("create")
 require("bindings")
