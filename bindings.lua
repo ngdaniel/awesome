@@ -34,9 +34,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "l", function () awful.tag.incmwfact(0.05)        end),
     awful.key({ modkey,           }, ",", function () awful.tag.incnmaster( 1)        end),
     awful.key({ modkey,           }, ".", function () awful.tag.incnmaster(-1)        end),
+
     -- Standard program
     awful.key({ modkey, "Control" }, "r", function ()
-        --awful.util.spawn_with_shell("killall compton")
         awesome.restart()
     end),
     awful.key({ modkey, "Shift", "Control" }, "Escape", awesome.quit),
@@ -51,7 +51,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,                    }, "F4",    function () awful.layout.set(awful.layout.suit.floating) end),
     awful.key({ modkey, "Shift",           }, "F4",    function () awful.layout.set(awful.layout.suit.magnifier) end),
 
-    --awful.key({ modkey, "Control"          }, "n", awful.client.restore),
     awful.key({ modkey }, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
 		awful.layout.arrange(mouse.screen)
@@ -67,8 +66,8 @@ globalkeys = awful.util.table.join(
 	awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
 
 
-    -- Make everything ultra minimal:
-    awful.key({ modkey }, "Escape", function ()
+    -- Ultra minimal mode
+    awful.key({ modkey,           }, "Escape", function ()
         awful.util.spawn_with_shell("killall conky")
         awful.util.spawn_with_shell("xsetroot -solid black")
         awful.util.spawn_with_shell("killall compton")
@@ -90,6 +89,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "r", function () awful.util.spawn(terminal .. " -e ranger") end),
     awful.key({ modkey,           }, "g", function () awful.util.spawn("google-chrome") end)
 )
+
+-- Client manipulation
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "f",      function (c) c.fullscreen = not c.fullscreen  end),

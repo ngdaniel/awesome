@@ -24,7 +24,7 @@ theme.fg_minimize                       = "#666666"
 
 theme.border_width                      = 1
 theme.border_normal                     = "#101010"
-theme.border_focus                      = "#333333"
+theme.border_focus                      = "#242424"
 theme.border_marked                     = "#91231c"
 
 theme.menu_height                       = 16
