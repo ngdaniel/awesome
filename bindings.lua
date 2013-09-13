@@ -2,7 +2,7 @@ beautiful = require ("beautiful")
 
 dmenu_prompt = "dmenu_run -y ".. beautiful.menu_height .." -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
 
-dmenu_prompt_hidden = "dmenu_run -y 0 -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_focus .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
+dmenu_prompt_hidden = "dmenu_run -y 0 -fn 'Termsynu-11' -h ".. beautiful.menu_height .." -nb '".. beautiful.bg_normal .. "' -nf '".. beautiful.fg_normal .."' -sb '".. beautiful.bg_focus .."' -sf '".. beautiful.fg_focus .."'"
 
 root.buttons(awful.util.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
