@@ -11,8 +11,8 @@ theme.wallpaper                         = "~/Pictures/Wallpapers/hill.jpg"
 
 theme.tasklist_disable_icon             = true
 
-theme.bg_normal                         = "#101010"
-theme.bg_focus                          = "#101010"
+theme.bg_normal                         = "#242424"
+theme.bg_focus                          = "#444444"
 theme.bg_urgent                         = "#ff0000"
 theme.bg_minimize                       = "#00000000"
 theme.bg_systray                        = "#00000000"
@@ -23,8 +23,8 @@ theme.fg_urgent                         = "#dddddd"
 theme.fg_minimize                       = "#666666"
 
 theme.border_width                      = 1
-theme.border_normal                     = "#101010"
-theme.border_focus                      = "#242424"
+theme.border_normal                     = "#242424"
+theme.border_focus                      = "#444444"
 theme.border_marked                     = "#91231c"
 
 theme.menu_height                       = 16
