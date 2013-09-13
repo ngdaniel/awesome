@@ -9,27 +9,32 @@ root.buttons(awful.util.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 
+local function focusMouse() 
+    client.focus:raise() 
+    mouse.coords(client.focus:geometry())
+end
+
 globalkeys = awful.util.table.join(
     
     -- Window selection
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
-            if client.focus then client.focus:raise() end
+            if client.focus then focusMouse() end
         end),
     awful.key({ modkey,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
-            if client.focus then client.focus:raise() end
+            if client.focus then focusMouse() end
         end),
 
     -- Layout manipulation
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(1) focusMouse() end),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(1) focusMouse() end),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(-1) focusMouse() end),
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) focusMouse() end),
     awful.key({ modkey,           }, "h", function () awful.tag.incmwfact(-0.05)       end),
     awful.key({ modkey,           }, "l", function () awful.tag.incmwfact(0.05)        end),
     awful.key({ modkey,           }, ",", function () awful.tag.incnmaster( 1)        end),
