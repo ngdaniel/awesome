@@ -43,7 +43,7 @@ theme.awesome_icon                      = widget_dir .. "awesome.png"
 theme.app_icon                          = menu_dir .. "apps.png"
 theme.pref_icon                         = menu_dir .. "pref.png"
 
-theme.widget_background                 = "#000000"
+theme.widget_background                 = "#141414"
 
 theme.seperator_icon                    = widget_dir .. "seperator.png"
 

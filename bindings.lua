@@ -16,7 +16,7 @@ end
 
 globalkeys = awful.util.table.join(
     
-    -- Window selection
+-- Window selection
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -28,7 +28,7 @@ globalkeys = awful.util.table.join(
             if client.focus then focusMouse() end
         end),
 
-    -- Layout manipulation
+-- Layout manipulation
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(1) focusMouse() end),
@@ -40,13 +40,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, ",", function () awful.tag.incnmaster( 1)        end),
     awful.key({ modkey,           }, ".", function () awful.tag.incnmaster(-1)        end),
 
-    -- Standard program
+-- Standard program
     awful.key({ modkey, "Control" }, "r", function ()
         awesome.restart()
     end),
     awful.key({ modkey, "Shift", "Control" }, "Escape", awesome.quit),
 
-    -- Change layout
+-- Change layout
     awful.key({ modkey,                    }, "F1",    function () awful.layout.set(awful.layout.suit.tile.right) end),
     awful.key({ modkey, "Shift",           }, "F1",    function () awful.layout.set(awful.layout.suit.tile.top) end),
     awful.key({ modkey,                    }, "F2",    function () awful.layout.set(awful.layout.suit.max) end),
@@ -61,24 +61,24 @@ globalkeys = awful.util.table.join(
 		awful.layout.arrange(mouse.screen)
     end),
 
-    -- System
-	awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 1") awful.util.spawn("pamixer --unmute") end),
-	awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 1") awful.util.spawn("pamixer --unmute") end),
-	awful.key({         "Shift"   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 5") awful.util.spawn("pamixer --unmute") end),
-	awful.key({         "Shift"   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 5") awful.util.spawn("pamixer --unmute") end),
-	awful.key({                   }, "XF86AudioMute", function() awful.util.spawn("pamixer --toggle-mute") end),
-	awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
-	awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
+-- System
+    awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 1") awful.util.spawn("pamixer --unmute") end),
+    awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 1") awful.util.spawn("pamixer --unmute") end),
+    awful.key({         "Shift"   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 5") awful.util.spawn("pamixer --unmute") end),
+    awful.key({         "Shift"   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 5") awful.util.spawn("pamixer --unmute") end),
+    awful.key({                   }, "XF86AudioMute", function() awful.util.spawn("pamixer --toggle-mute") end),
+    awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
+    awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
 
 
-    -- Ultra minimal mode
+-- Ultra minimal mode
     awful.key({ modkey,           }, "Escape", function ()
         awful.util.spawn_with_shell("killall conky")
         awful.util.spawn_with_shell("xsetroot -solid black")
         awful.util.spawn_with_shell("killall compton")
     end),
 
-    -- dmenu prompt
+-- Dmenu prompt
     awful.key({ modkey,           }, "e",
         function () 
             if mywibox[mouse.screen].visible then
@@ -88,11 +88,8 @@ globalkeys = awful.util.table.join(
             end
         end),
 
-    -- Applications
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey,           }, "v", function () awful.util.spawn(terminal .. " -e vim") end),
-    awful.key({ modkey,           }, "r", function () awful.util.spawn(terminal .. " -e ranger") end),
-    awful.key({ modkey,           }, "g", function () awful.util.spawn("google-chrome") end)
+-- Applications
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end)
 )
 
 -- Client manipulation
@@ -157,4 +154,3 @@ clientbuttons = awful.util.table.join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
