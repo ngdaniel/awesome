@@ -1,17 +1,25 @@
 awful.rules.rules = {
     { 
-        rule = {
-        },
-      
-        properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-		     size_hints_honor= false 
+        rule = {},
+        properties = { 
+            border_width = beautiful.border_width,
+            border_color = beautiful.border_normal,
+            focus = awful.client.focus.filter,
+            keys = clientkeys,
+            buttons = clientbuttons,
+            size_hints_honor= false 
         } 
     },
+    {
+        rule = { class = "Gimp" },
+        properties = { floating = true }
+    },
+    {
+        rule = { class = "Steam" },
+        properties = { floating = true }
+    }
 }
+
 
 client.connect_signal("manage", function (c, startup)
     c:connect_signal("mouse::enter", function(c)

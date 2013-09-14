@@ -12,7 +12,8 @@ beautiful = require("beautiful")
 naughty = require("naughty")
 menubar = require("menubar")
 
--- Error checking
+-- Error and notification handling
+naughty.config.defaults.border_width = 0
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",

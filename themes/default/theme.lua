@@ -6,6 +6,7 @@ tag_dir                                 = dir .. "taglist/" .. size .. "/"
 menu_dir                                = dir .. "icons/menu/" .. size .. "/"
 layout_dir				= dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
+
 theme.font                              = "Termsynu 11"
 theme.wallpaper                         = "~/Pictures/Wallpapers/hill.jpg"
 
@@ -64,6 +65,12 @@ theme.volume_mute_icon                  = widget_dir .. "volume_mute.png"
 
 theme.titlebar_close_button_normal      = dir .. "titlebar/close_normal.png"
 theme.titlebar_close_button_focus       = dir .. "titlebar/close_focus.png"
+
+theme.tasklist_sticky                   = "[s]"
+theme.tasklist_ontop                    = "[s]"
+theme.tasklist_floating                 = "[f]"
+theme.tasklist_maximized_horizontal     = "[mh]"
+theme.tasklist_maximized_vertical       = "[mv]"
 
 theme.layout_fairh                      = layout_dir .. "fairh.png"
 theme.layout_fairv                      = layout_dir .. "fairv.png"
