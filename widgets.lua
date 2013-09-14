@@ -4,7 +4,7 @@ seperator = wibox.widget.imagebox()
 seperator:set_image(beautiful.seperator_icon)
 
 datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, "%a %b %d, <span color='".. beautiful.fg_focus .."'>%H:%M</span> ", 60)
+vicious.register(datewidget, vicious.widgets.date, "%a %b %d, <span color='".. beautiful.fg_focus .."'>%H:%M</span> ", 30)
 
 batticon = wibox.widget.imagebox()
 batticon:set_image(beautiful.batt_charging)
