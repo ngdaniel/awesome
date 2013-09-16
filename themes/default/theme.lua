@@ -67,7 +67,7 @@ theme.titlebar_close_button_normal      = dir .. "titlebar/close_normal.png"
 theme.titlebar_close_button_focus       = dir .. "titlebar/close_focus.png"
 
 theme.tasklist_sticky                   = "[s]"
-theme.tasklist_ontop                    = "[s]"
+theme.tasklist_ontop                    = "[t]"
 theme.tasklist_floating                 = "[f]"
 theme.tasklist_maximized_horizontal     = "[mh]"
 theme.tasklist_maximized_vertical       = "[mv]"

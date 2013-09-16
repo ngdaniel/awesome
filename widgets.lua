@@ -57,7 +57,7 @@ vicious.register(wifiicon, vicious.widgets.wifi,
 	else
 	    widget:set_image(beautiful.wifi_no_icon)
 	end
-    end, 10, "wlp3s0")
+    end, 5, "wlp3s0")
 
 wifiwidget = wibox.widget.textbox()
 vicious.register(wifiwidget, vicious.widgets.wifi, "<span color='".. beautiful.fg_focus .."'>${ssid}</span>", 5, "wlp3s0")
@@ -73,6 +73,9 @@ vicious.register(wifiwidget, vicious.widgets.wifi,
 
 volumeicon = wibox.widget.imagebox()
 volumeicon:set_image(beautiful.volume_icon)
+volumeicon:buttons(awful.util.table.join(
+    awful.button({ }, 1, function () awful.util.spawn("pamixer --toggle-mute") end)
+))
 vicious.register(volumeicon, vicious.widgets.volume,
     function (widget, args)
         if(args[2] == "♩") then
@@ -84,7 +87,7 @@ vicious.register(volumeicon, vicious.widgets.volume,
             	widget:set_image(beautiful.volume_mute_icon)
 			end
         end
-    end, 0.5, "Master -c0")
+    end, 0.3, "Master -c0")
 
 volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume,
