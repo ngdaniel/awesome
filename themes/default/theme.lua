@@ -1,10 +1,10 @@
 theme = {}
 
 dir                                     = "~/.config/awesome/themes/default/"
-size                                    = "16x16"
+size                                    = "14x14"
 tag_dir                                 = dir .. "taglist/" .. size .. "/"
 menu_dir                                = dir .. "icons/menu/" .. size .. "/"
-layout_dir				= dir .. "layouts/" .. size .. "/"
+layout_dir				                = dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
 
 theme.font                              = "Termsynu 11"
@@ -28,7 +28,7 @@ theme.border_normal                     = "#242424"
 theme.border_focus                      = "#444444"
 theme.border_marked                     = "#91231c"
 
-theme.menu_height                       = 16
+theme.menu_height                       = 14
 theme.menu_width                        = 150
 theme.menu_border_width                 = 0
 theme.menu_bg_normal                    = theme.bg_normal

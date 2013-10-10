@@ -20,7 +20,7 @@ vicious.register(batticon, vicious.widgets.bat,
 )
  
 battwidget = awful.widget.progressbar()
-battwidget:set_width(8)
+battwidget:set_width(2)
 battwidget:set_height(20)
 battwidget:set_vertical(true)
 battwidget:set_background_color(beautiful.widget_background)
@@ -39,7 +39,7 @@ cpuicon = wibox.widget.imagebox()
 cpuicon:set_image(beautiful.cpu_icon)
 
 cpuwidget = awful.widget.graph()
-cpuwidget:set_width(50)
+cpuwidget:set_width(40)
 cpuwidget:set_background_color(beautiful.widget_background)
 cpuwidget:set_color("#AECF96")
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 10, "wlp3s0")
