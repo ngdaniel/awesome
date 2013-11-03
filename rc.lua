@@ -1,30 +1,24 @@
--- Standard awesome library
+-- LIBARIES
 gears = require("gears")
 awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
--- Widget and layout library
 wibox = require("wibox")
 vicious = require("vicious")
--- Theme handling library
 beautiful = require("beautiful")
--- Notification library
 naughty = require("naughty")
 menubar = require("menubar")
 
--- Error and notification handling
+-- ERROR HANDLING
 naughty.config.defaults.border_width = 0
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors, timeout = 5})
 end
-
--- Handle runtime errors after startup
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
 
@@ -47,14 +41,17 @@ editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
--- Set wallpaper
+-- WALLPAPER
 if beautiful.wallpaper then
     for s = 1, screen.count() do
         gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
 end
 
--- Include everything
+-- TRANSPARENCY
+awful.util.spawn_with_shell("compton -c &")
+
+-- LINK
 require("tags")
 require("widgets")
 require("create")

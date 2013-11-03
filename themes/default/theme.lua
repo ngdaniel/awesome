@@ -8,7 +8,7 @@ layout_dir				                = dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
 
 theme.font                              = "Termsynu 11"
-theme.wallpaper                         = "~/Pictures/Wallpapers/hill.jpg"
+theme.wallpaper                         = "~/Pictures/Wallpapers/rocket.png"
 
 theme.tasklist_disable_icon             = true
 
