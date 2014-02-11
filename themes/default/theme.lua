@@ -1,76 +1,53 @@
 theme = {}
 
 dir                                     = "~/.config/awesome/themes/default/"
-size                                    = "14x14"
+size                                    = "13x13"
 tag_dir                                 = dir .. "taglist/" .. size .. "/"
 menu_dir                                = dir .. "icons/menu/" .. size .. "/"
-layout_dir				                = dir .. "layouts/" .. size .. "/"
+layout_dir                              = dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
 
-theme.font                              = "Termsynu 11"
-theme.wallpaper                         = "~/Pictures/Wallpapers/shiori.jpg"
+theme.font                              = "Termsyn 11"
+theme.wallpaper                         = "~/Pictures/Wallpapers/misaka.jpg"
 
 theme.tasklist_disable_icon             = true
 
-theme.bg_normal                         = "#242424"
-theme.bg_focus                          = "#444444"
+theme.bg_normal                         = "#333333"
+theme.bg_focus                          = "#141414"
+theme.bg_terminal                       = "#040404df"
 theme.bg_urgent                         = "#ff0000"
-theme.bg_minimize                       = "#00000000"
-theme.bg_systray                        = "#00000000"
+theme.bg_minimize                       = "#000000"
+theme.bg_systray                        = "#000000"
 
-theme.fg_normal                         = "#888888"
-theme.fg_focus                          = "#cccccc"
+theme.fg_normal                         = "#dfdfdf"
+theme.fg_focus                          = "#d46a6f"
 theme.fg_urgent                         = "#dddddd"
 theme.fg_minimize                       = "#666666"
 
 theme.border_width                      = 1
-theme.border_normal                     = "#242424"
-theme.border_focus                      = "#444444"
+theme.border_normal                     = "#333333"
+theme.border_focus                      = "#555555"
 theme.border_marked                     = "#91231c"
 
-theme.menu_height                       = 14
-theme.menu_width                        = 150
-theme.menu_border_width                 = 0
-theme.menu_bg_normal                    = theme.bg_normal
-theme.menu_bg_focus                     = theme.bg_focus 
+theme.menu_height                       = 13
 
-theme.menu_submenu_icon                 = dir .. "submenu" .. size .. ".png"
-
-theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
-theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
+ theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
+ theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
 
 theme.awesome_icon                      = widget_dir .. "awesome.png"
 
 theme.app_icon                          = menu_dir .. "apps.png"
 theme.pref_icon                         = menu_dir .. "pref.png"
 
-theme.widget_background                 = "#141414"
-
-theme.seperator_icon                    = widget_dir .. "seperator.png"
-
-theme.batt_charging_icon                = widget_dir .. "batt_charging.png"  
-theme.batt_discharging_icon             = widget_dir .. "batt_discharging.png"  
-theme.batt_color                        = "#AECF96"
-theme.batt_low_color                    = "#DD4940"
-
-theme.cpu_icon                          = widget_dir .. "cpu.png"
-
-theme.wifi_hi_icon                      = widget_dir .. "wifi_hi.png"
-theme.wifi_med_icon                     = widget_dir .. "wifi_med.png"
-theme.wifi_low_icon                     = widget_dir .. "wifi_low.png"
-theme.wifi_no_icon                      = widget_dir .. "wifi_no.png"
-
-theme.volume_icon                       = widget_dir .. "volume.png"
-theme.volume_mute_icon                  = widget_dir .. "volume_mute.png"
-
-theme.titlebar_close_button_normal      = dir .. "titlebar/close_normal.png"
-theme.titlebar_close_button_focus       = dir .. "titlebar/close_focus.png"
+theme.widget_background                 = "#040404"
 
 theme.tasklist_sticky                   = "[s]"
 theme.tasklist_ontop                    = "[t]"
 theme.tasklist_floating                 = "[f]"
 theme.tasklist_maximized_horizontal     = "[mh]"
 theme.tasklist_maximized_vertical       = "[mv]"
+
+theme.launcher_icon                     = widget_dir .. "awesome.png"
 
 theme.layout_fairh                      = layout_dir .. "fairh.png"
 theme.layout_fairv                      = layout_dir .. "fairv.png"

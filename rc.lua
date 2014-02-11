@@ -8,6 +8,7 @@ vicious = require("vicious")
 beautiful = require("beautiful")
 naughty = require("naughty")
 menubar = require("menubar")
+egregious = require("egregious")
 
 -- ERROR HANDLING
 naughty.config.defaults.border_width = 0
@@ -33,11 +34,11 @@ end
 config_dir = awful.util.getdir("config")
 
 -- THEME
-beautiful.init(config_dir .. "/themes/default/theme.lua")
+beautiful.init(config_dir .. "/themes/misaka/theme.lua")
 
 -- DEFAULTS
 terminal = "urxvt"
-editor = os.getenv("EDITOR") or "emacs"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
@@ -49,7 +50,7 @@ if beautiful.wallpaper then
 end
 
 -- TRANSPARENCY
-awful.util.spawn_with_shell("compton -c &")
+awful.util.spawn_with_shell("compton &")
 
 -- LINK
 require("tags")
