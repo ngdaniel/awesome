@@ -1,0 +1,12 @@
+#!/bin/python
+from PIL import Image
+
+def invert (px):
+    px = 255 - px
+    px = px / 255 * 235
+    px += 20
+    return px
+path = "/home/eugeneyche/.config/awesome/themes/xkcd/wallpaper.png"
+img = Image.open(path).convert("L")
+img = img.point(invert)
+img.save(path)

@@ -1,4 +1,4 @@
--- LIBARIES
+-- libaries
 gears = require("gears")
 awful = require("awful")
 awful.rules = require("awful.rules")
@@ -10,49 +10,59 @@ naughty = require("naughty")
 menubar = require("menubar")
 egregious = require("egregious")
 
--- ERROR HANDLING
-naughty.config.defaults.border_width = 0
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors, timeout = 5})
+-- error handling
+naughty.config.defaults.border_width = 1
+naughty.config.defaults.border_color = "#de463b"
+if awesome.startup_errors 
+then
+  naughty.notify(
+    { 
+      title = "Oops, there were errors during startup!",
+      text = awesome.startup_errors, timeout = 5
+    })
 end
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        if in_error then return end
-        in_error = true
+local in_error = false
+awesome.connect_signal("debug::error", 
+  function (err)
+    if in_error then return end
+    in_error = true
+    naughty.notify(
+      { 
+        title = "Oops, an error happened!",
+        text = err, timeout = 5
+      })
+    in_error = false
+  end)
 
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err, timeout = 5})
-        in_error = false
-    end)
-end
-
--- GLOBALS
+-- globals
 config_dir = awful.util.getdir("config")
 
--- THEME
-beautiful.init(config_dir .. "/themes/misaka/theme.lua")
+-- theme
+beautiful.init(config_dir .. "/themes/default/theme.lua")
 
--- DEFAULTS
-terminal = "urxvt"
-editor = os.getenv("EDITOR") or "vim"
+-- defaults
+terminal   = "urxvt"
+editor     = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
-modkey = "Mod4"
+modkey     = "Mod4"
 
--- WALLPAPER
+-- wallpaper
 if beautiful.wallpaper then
-    for s = 1, screen.count() do
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+  for s = 1, screen.count() 
+  do
+    if beautiful.wallpaper_exec ~= nil
+    then
+      beautiful.wallpaper_exec(s)
+    else
+      gears.wallpaper.maximized(beautiful.wallpaper, s, true)
     end
+  end
 end
 
--- TRANSPARENCY
+-- transparency
 awful.util.spawn_with_shell("compton &")
 
--- LINK
+-- link
 require("tags")
 require("widgets")
 require("create")

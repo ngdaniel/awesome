@@ -1,43 +1,46 @@
+vicious = require("vicious")
+
 theme = {}
 
 dir                                     = "~/.config/awesome/themes/default/"
-size                                    = "13x13"
+size                                    = "12x12"
 tag_dir                                 = dir .. "taglist/" .. size .. "/"
-menu_dir                                = dir .. "icons/menu/" .. size .. "/"
 layout_dir                              = dir .. "layouts/" .. size .. "/"
-widget_dir                              = dir .. "icons/widgets/" .. size .. "/" 
+widget_dir                              = dir .. "widgets/" .. size .. "/" 
 
-theme.font                              = "Termsyn 11"
-theme.wallpaper                         = "~/Pictures/Wallpapers/misaka.jpg"
+theme.font                              = "Termsyn 9"
+theme.wallpaper                         = dir .. "wallpaper.png"
+theme.wallpaper_exec                    = 
+  function (s)
+    gears.wallpaper.set("#1b1b1b")
+  end
+theme.menu_height                       = 12
 
 theme.tasklist_disable_icon             = true
+theme.tasklist_fg_focus                 = "#de463b"
 
-theme.bg_normal                         = "#333333"
-theme.bg_focus                          = "#141414"
-theme.bg_terminal                       = "#040404df"
+theme.bg_normal                         = "#343434"
+theme.bg_focus                          = "#1b1b1b"
+theme.bg_widget                         = "#1b1b1b"
 theme.bg_urgent                         = "#ff0000"
-theme.bg_minimize                       = "#000000"
-theme.bg_systray                        = "#000000"
+theme.bg_minimize                       = "#00000000"
+theme.bg_systray                        = "#00000000"
 
 theme.fg_normal                         = "#dfdfdf"
-theme.fg_focus                          = "#d46a6f"
+theme.fg_focus                          = "#526eb7"
 theme.fg_urgent                         = "#dddddd"
-theme.fg_minimize                       = "#666666"
+theme.fg_minimize                       = "#de463b"
 
 theme.border_width                      = 1
 theme.border_normal                     = "#333333"
-theme.border_focus                      = "#555555"
+theme.border_focus                      = "#526eb7"
 theme.border_marked                     = "#91231c"
 
-theme.menu_height                       = 13
 
- theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
- theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
+theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
+theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
 
 theme.awesome_icon                      = widget_dir .. "awesome.png"
-
-theme.app_icon                          = menu_dir .. "apps.png"
-theme.pref_icon                         = menu_dir .. "pref.png"
 
 theme.widget_background                 = "#040404"
 
@@ -47,7 +50,16 @@ theme.tasklist_floating                 = "[f]"
 theme.tasklist_maximized_horizontal     = "[mh]"
 theme.tasklist_maximized_vertical       = "[mv]"
 
+theme.separator_icon                    = widget_dir .. "separator.png"
+theme.battwidget_icon                   = widget_dir .. "batt_charging.png"
+theme.battwidget_discharging_icon       = widget_dir .. "batt_discharging.png"
+theme.launcher_icon_focus               = widget_dir .. "awesome_focus.png"
 theme.launcher_icon                     = widget_dir .. "awesome.png"
+theme.launcher_icon_focus               = widget_dir .. "awesome_focus.png"
+theme.soundwidget_icon                  = widget_dir .. "sound.png"
+theme.soundwidget_icon_focus            = widget_dir .. "sound_focus.png"
+theme.wifiwidget_icon                   = widget_dir .. "wifi.png"
+theme.cpuwidget_icon                    = widget_dir .. "cpu.png"
 
 theme.layout_fairh                      = layout_dir .. "fairh.png"
 theme.layout_fairv                      = layout_dir .. "fairv.png"
