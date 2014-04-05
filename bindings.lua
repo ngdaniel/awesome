@@ -46,23 +46,6 @@ globalkeys = awful.util.table.join(
       awful.layout.arrange(mouse.screen)
     end),
 
--- system
-  awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 5") awful.util.spawn("pamixer --unmute") end),
-  awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 5") awful.util.spawn("pamixer --unmute") end),
-  awful.key({         "Shift"   }, "XF86AudioRaiseVolume", function() awful.util.spawn("pamixer --increase 1") awful.util.spawn("pamixer --unmute") end),
-  awful.key({         "Shift"   }, "XF86AudioLowerVolume", function() awful.util.spawn("pamixer --decrease 1") awful.util.spawn("pamixer --unmute") end),
-  awful.key({                   }, "XF86AudioMute", function()  awful.util.spawn("pamixer --toggle-mute") end),
-  awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight -inc 10") end),
-  awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -dec 10") end),
-
--- ultra minimal mode
-  awful.key({ modkey,           }, "Escape", 
-    function ()
-      awful.util.spawn_with_shell("killall conky")
-      gears.wallpaper.set(beautiful.bg_focus)
-      awful.util.spawn_with_shell("killall compton")
-    end),
-
 -- prompt
   awful.key({ modkey,           }, "e", 
     function() 

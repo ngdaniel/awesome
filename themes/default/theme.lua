@@ -3,18 +3,18 @@ vicious = require("vicious")
 theme = {}
 
 dir                                     = "~/.config/awesome/themes/default/"
-size                                    = "12x12"
+size                                    = "14x14"
 tag_dir                                 = dir .. "taglist/" .. size .. "/"
 layout_dir                              = dir .. "layouts/" .. size .. "/"
 widget_dir                              = dir .. "widgets/" .. size .. "/" 
 
-theme.font                              = "Termsyn 9"
+theme.font                              = "Termsyn 11"
 theme.wallpaper                         = dir .. "wallpaper.png"
 theme.wallpaper_exec                    = 
   function (s)
     gears.wallpaper.set("#1b1b1b")
   end
-theme.menu_height                       = 12
+theme.menu_height                       = 14
 
 theme.tasklist_disable_icon             = true
 theme.tasklist_fg_focus                 = "#de463b"

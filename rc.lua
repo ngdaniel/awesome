@@ -59,9 +59,6 @@ if beautiful.wallpaper then
   end
 end
 
--- transparency
-awful.util.spawn_with_shell("compton &")
-
 -- link
 require("tags")
 require("widgets")

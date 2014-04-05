@@ -1,9 +1,0 @@
-#!/bin/bash
-
-MYDIR="/home/eugeneyche/.config/awesome/themes/xkcd"
-wget $(curl -sL "http://dynamic.xkcd.com/random/comic/" \
-    | grep "http://imgs.xkcd.com/comics/"\
-    | awk -Fsrc=\" '{print $2}'\
-    |awk -F\" '{print $1}') -O ${MYDIR}/wallpaper.png
-${MYDIR}/filter
-
