@@ -10,7 +10,7 @@ widget_dir                              = dir .. "widgets/" .. size .. "/"
 
 theme.font                              = "Termsyn 11"
 theme.wallpaper                         = dir .. "wallpaper.png"
-theme.wallpaper_exec                    = 
+theme.wallpaper_exec =
   function (s)
     gears.wallpaper.set("#1b1b1b")
   end
