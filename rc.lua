@@ -38,7 +38,7 @@ awesome.connect_signal("debug::error",
 config_dir = awful.util.getdir("config")
 
 -- theme
-beautiful.init(config_dir .. "/themes/default/theme.lua")
+beautiful.init(config_dir .. "/themes/twilight/theme.lua")
 
 -- defaults
 terminal   = "urxvt"
@@ -50,12 +50,7 @@ modkey     = "Mod4"
 if beautiful.wallpaper then
   for s = 1, screen.count() 
   do
-    if beautiful.wallpaper_exec ~= nil
-    then
-      beautiful.wallpaper_exec(s)
-    else
-      gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-    end
+    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
   end
 end
 

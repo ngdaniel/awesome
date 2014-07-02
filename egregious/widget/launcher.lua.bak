@@ -1,0 +1,104 @@
+local capi =
+{
+    awesome = awesome,
+    screen = screen,
+    client = client
+}
+local wibox = require("wibox")
+local theme = require("beautiful")
+local awful = require("awful")
+
+local launcher = { mt = {} }
+
+local function make_button(args)
+    local args = args or {}
+    local w = wibox.widget.background()
+    local icon = wibox.widget.imagebox()
+    w:set_widget(icon)
+    w.focus = function ()
+        w:set_bg(theme.bg_focus) -- TODO: make replacable
+        icon:set_image(theme.launcher_icon_focus) -- TODO: make replacable
+    end
+    w.normal = function ()
+        w:set_bg(theme.bg_normal) -- TODO: make replacable
+        icon:set_image(theme.launcher_icon) -- TODO: make replacable
+    end
+    w.normal()
+    return w
+end
+
+local function make_prompt_widget(args)
+    local args = args or {}
+    local w = wibox.layout.fixed.horizontal()
+    w:fill_space(true)
+    -- pre_prompt
+    local pre = wibox.widget.textbox()
+    pre:set_markup("<span fgcolor='" .. beautiful.fg_normal .. "'>Run</span>") -- TODO: make replacable
+    local pre_margin = wibox.layout.margin(pre, 4, 4)
+    local pre_bg = wibox.widget.background()
+    pre_bg:set_widget(pre_margin)
+    pre_bg:set_bg(theme.bg_normal) -- TODO: make replacable
+    w:add(pre_bg)
+    -- prompt
+    local pr = awful.widget.prompt() 
+    local pr_margin = wibox.layout.margin(pr, 3, 3)
+    w:add(pr_margin)
+    w.run = function (args)
+        local args = args or {}
+        local done_callback = args.done_callback or {}
+        awful.prompt.run({ prompt="$ ", bg_cursor=theme.fg_normal },
+            pr.widget,
+            awful.util.spawn,
+            awful.completion.shell,
+            awful.util.getdir("cache") .. "/history",
+            50,
+            done_callback)
+    end
+    return w
+end
+
+local function make_popup(args)
+    local args = args or {}
+    local pop = egregious.popup ({ 
+        height = theme.menu_height,  
+        width = 250,
+        border_width = 0,
+        border_color = theme.border_normal
+    })
+    pop:set_bg(theme.bg_widget)
+    return pop
+end
+
+function launcher.new(args)
+    local args = args or {}
+    local w = wibox.layout.fixed.horizontal()
+    local button = make_button(args)
+    local pop = make_popup(args)
+    local pop_w = make_prompt_widget(args)
+    local expander = wibox.widget.background()
+    pop:set_widget(pop_w)
+    local spawn = args.popup_spawn or { x = 5, y = 20, pivot = "bottom-left" }
+    w.hide = function ()
+        button.normal()
+        pop:hide()
+    end
+    w.show = function ()
+        if not pop.visible then
+            button.focus()
+            pop:show(spawn)
+            pop_w.run({done_callback = w.hide})
+        end
+    end
+    button:buttons(awful.util.table.join(
+        awful.button({ }, 1, function ()
+            button.show()
+        end)
+    ))
+    return button
+end
+
+function launcher.mt:__call(...)
+    return launcher.new(...)
+end
+
+return setmetatable(launcher, launcher.mt)

@@ -1,0 +1,113 @@
+local capi =
+{
+    awesome = awesome,
+    screen = screen,
+    client = client
+}
+local wibox = require("wibox")
+local theme = require("beautiful")
+local awful = require("awful")
+local vicious = require("vicious")
+
+local soundwidget = { mt = {} }
+
+local function make_button(args)
+    local args = args or {}
+    local w = wibox.widget.background()
+    local icon = wibox.widget.imagebox()
+    w:set_widget(icon)
+    w.focus = function ()
+        w:set_bg(theme.bg_focus) -- TODO: make replacable
+        icon:set_image(theme.soundwidget_icon_focus) -- TODO: make replacable
+    end
+    w.normal = function ()
+        w:set_bg(theme.bg_normal) -- TODO: make replacable
+        icon:set_image(theme.soundwidget_icon) -- TODO: make replacable
+    end
+    w.normal()
+    return w
+end
+
+local function make_volume_widget(args)
+    local args = args or {}
+    local w = wibox.layout.fixed.vertical()
+    w:fill_space(true)
+    -- progressbar
+    bar = awful.widget.progressbar ()
+    bar:set_width (8)
+    bar:set_vertical (true)
+    bar:set_color(theme.fg_focus)
+    bar:set_background_color(theme.bg_widget)
+    w:add(bar)
+    vicious.register (bar, vicious.widgets.volume, function (widget, args)
+        if args[2] == "♩"
+        then
+            return 0
+        end
+        return args[1]
+    end, 0.2, "Master")
+    local m_timer = timer({timeout = 1.5})
+    w.run = function (args)
+        local args = args or {}
+        local done_callback = args.done_callback or {}
+        m_timer:connect_signal("timeout", function () 
+            done_callback()
+            m_timer:stop()
+        end)
+        if m_timer.started
+        then
+            m_timer:stop()
+        end
+        m_timer:start()
+    end
+    return w
+end
+
+local function make_popup(args)
+    local args = args or {}
+    local pop = egregious.popup ({ 
+        height = 80,
+        width = 3, 
+        border_width = 1,
+        border_color = theme.border_normal
+    })
+    pop:set_bg(theme.bg_terminal)
+    return pop
+end
+
+function soundwidget.new(args)
+    local args = args or {}
+    local button = make_button(args)
+    local pop = make_popup(args)
+    local pop_w = make_volume_widget(args)
+    pop:set_widget(pop_w)
+    local spawn = args.popup_spawn or { x = 90, y = theme.menu_height + 9, pivot = "bottom-right" }
+    button.hide = function ()
+        button.normal()
+        pop:hide()
+    end
+    button.show = function ()
+        if not pop.visible then
+            button.focus()
+            pop_w.run({done_callback = button.hide})
+            pop:show(spawn)
+        end
+    end
+    button:buttons(awful.util.table.join(
+        awful.button({ }, 1, function ()
+            if pop.visible
+            then
+                button.hide()
+            else
+                button.show()
+            end
+        end)
+    ))
+    return button
+end
+
+function soundwidget.mt:__call(...)
+    return soundwidget.new(...)
+end
+
+return setmetatable(soundwidget, soundwidget.mt)

@@ -15,10 +15,11 @@ awful.rules.rules = {
 client.connect_signal("manage", 
   function (c, startup)
     c:connect_signal("mouse::enter", 
-      function(c)
+      function (c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
           and awful.client.focus.filter(c) then client.focus = c end
-      end)
+      end
+    )
     if not startup then
       if not c.size_hints.user_position and not c.size_hints.program_position then
         awful.placement.no_overlap(c)
@@ -29,17 +30,20 @@ client.connect_signal("manage",
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
       local buttons = awful.util.table.join(
         awful.button({ }, 1, 
-          function()
+          function ()
             client.focus = c
             c:raise()
             awful.mouse.client.move(c)
-          end),
+          end
+        ),
         awful.button({ }, 3, 
           function()
             client.focus = c
             c:raise()
             awful.mouse.client.resize(c)
-          end))
+          end
+        )
+      )
       local left_layout = wibox.layout.fixed.horizontal()
       left_layout:add(awful.titlebar.widget.iconwidget(c))
       left_layout:buttons(buttons)
@@ -60,7 +64,8 @@ client.connect_signal("manage",
       layout:set_middle(middle_layout)
       awful.titlebar(c):set_widget(layout)
     end
-  end)
+  end
+)
 
 client.connect_signal(  "focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)

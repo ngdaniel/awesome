@@ -25,8 +25,8 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey,           }, "p", function () awful.screen.focus(2) end),
   awful.key({ modkey, "Shift"   }, "o", function () awful.client.movetoscreen(c, 1) end),
   awful.key({ modkey, "Shift"   }, "p", function () awful.client.movetoscreen(c, 2) end),
-  awful.key({ modkey,           }, "h", function () awful.tag.incmwfact(-0.05)       end),
-  awful.key({ modkey,           }, "l", function () awful.tag.incmwfact(0.05)        end),
+  awful.key({ modkey,           }, "h", function () awful.tag.incmwfact(-0.05)      end),
+  awful.key({ modkey,           }, "l", function () awful.tag.incmwfact(0.05)       end),
   awful.key({ modkey,           }, ",", function () awful.tag.incnmaster( 1)        end),
   awful.key({ modkey,           }, ".", function () awful.tag.incnmaster(-1)        end),
 
@@ -44,7 +44,8 @@ globalkeys = awful.util.table.join(
     function () 
       mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
       awful.layout.arrange(mouse.screen)
-    end),
+    end
+  ),
 
 -- prompt
   awful.key({ modkey,           }, "e", 
@@ -64,11 +65,11 @@ clientkeys = awful.util.table.join(
   awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
   awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
   awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
-  awful.key({ modkey,           }, "m",
-    function (c)
+  awful.key({ modkey,           }, "m",      function (c)
       c.maximized_horizontal = not c.maximized_horizontal
       c.maximized_vertical   = not c.maximized_vertical
-    end)
+    end
+  )
 )
 
 for i = 1, 9 do
@@ -94,7 +95,9 @@ for i = 1, 9 do
       function ()
         local tag = awful.tag.gettags(client.focus.screen)[i]
         if client.focus and tag then awful.client.toggletag(tag) end
-      end))
+      end
+    )
+  )
 end
 
 clientbuttons = awful.util.table.join(
