@@ -1,6 +1,6 @@
 require("beautiful")
 
-mywibox     = {}
+--mywibox     = {}
 mylayoutbox = {}
 mytaglist   = {}
 mytasklist  = {}
@@ -43,20 +43,14 @@ for s = 1, screen.count() do
   mytaglist[s]  = awful.widget.taglist( s, awful.widget.taglist.filter.all, mytaglist.buttons)
   mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.focused, mytasklist.buttons)
   
-  mywibox[s] = awful.wibox({position="bottom", height=beautiful.menu_height, 
-    screen=s, border_width=0, border_color=beautiful.bg_focus
-  })
+--mywibox[s] = awful.wibox({position="bottom", height=beautiful.menu_height, 
+--  screen=s, border_width=0, border_color=beautiful.bg_focus
+--})
 
   local left_layout = wibox.layout.fixed.horizontal()
-  left_layout:add(launcher)
   left_layout:add(mytaglist[s])
 
   local right_layout = wibox.layout.fixed.horizontal({bg=beautiful.bg_focus})
-  right_layout:add(datewidget)
-  right_layout:add(wifiwidget)
-  right_layout:add(cpuwidget)
-  right_layout:add(soundwidget)
-  right_layout:add(battwidget)
   right_layout:add(mylayoutbox[s])
 
   local middle_layout = wibox.layout.flex.horizontal()
@@ -67,5 +61,5 @@ for s = 1, screen.count() do
   layout:set_middle(middle_layout)
   layout:set_right(right_layout)
 
-  mywibox[s]:set_widget(layout)
+--mywibox[s]:set_widget(layout)
 end

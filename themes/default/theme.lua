@@ -10,21 +10,12 @@ widget_dir                              = dir .. "widgets/" .. size .. "/"
 
 theme.font                              = "Termsyn 11"
 theme.wallpaper                         = dir .. "wallpaper.png"
-theme.wallpaper_exec =
-  function (s)
-    gears.wallpaper.set("#1b1b1b")
-  end
 theme.menu_height                       = 14
-
-theme.tasklist_disable_icon             = true
-theme.tasklist_fg_focus                 = "#de463b"
 
 theme.bg_normal                         = "#343434"
 theme.bg_focus                          = "#1b1b1b"
 theme.bg_widget                         = "#1b1b1b"
 theme.bg_urgent                         = "#ff0000"
-theme.bg_minimize                       = "#00000000"
-theme.bg_systray                        = "#00000000"
 
 theme.fg_normal                         = "#fdfdfd"
 theme.fg_focus                          = "#526eb7"
@@ -41,8 +32,6 @@ theme.taglist_squares_sel               = tag_dir .. "squarefw.png"
 theme.taglist_squares_unsel             = tag_dir .. "squarew.png"
 
 theme.awesome_icon                      = widget_dir .. "awesome.png"
-
-theme.widget_background                 = "#040404"
 
 theme.tasklist_sticky                   = "[s]"
 theme.tasklist_ontop                    = "[t]"

@@ -13,7 +13,7 @@ egregious = require("egregious")
 config_dir = awful.util.getdir("config")
 
 -- theme
-beautiful.init(config_dir .. "/themes/twilight/theme.lua")
+beautiful.init(config_dir .. "/themes/default/theme.lua")
 
 -- defaults
 terminal   = "urxvt"
