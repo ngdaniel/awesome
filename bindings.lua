@@ -45,7 +45,12 @@ globalkeys = awful.util.table.join(
   end),
 
 -- applications
-  awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end)
+  awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+
+-- launcher
+  awful.key({ modkey, }, "e", function()
+    if mywibox[mouse.screen].visible then launcher.show() else launcher.show() end
+  end)
 
 )
 

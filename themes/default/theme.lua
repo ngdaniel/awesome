@@ -3,28 +3,27 @@ vicious = require("vicious")
 theme = {}
 
 dir                                     = "~/.config/awesome/themes/default/"
-size                                    = "14x14"
-tag_dir                                 = dir .. "taglist/" .. size .. "/"
-layout_dir                              = dir .. "layouts/" .. size .. "/"
-widget_dir                              = dir .. "widgets/" .. size .. "/" 
+tag_dir                                 = dir .. "taglist/" .. "/"
+layout_dir                              = dir .. "layouts/" .. "/"
+widget_dir                              = dir .. "widgets/" .. "/" 
 
-theme.font                              = "Termsyn 11"
-theme.wallpaper                         = dir .. "wallpaper.png"
-theme.menu_height                       = 14
+theme.font                              = "DejaVu Sans Mono 11px"
+theme.wallpaper                         = dir .. "wallpaper.jpg"
+theme.menu_height                       = 15
 
-theme.bg_normal                         = "#343434"
+theme.bg_normal                         = "#282828"
 theme.bg_focus                          = "#1b1b1b"
 theme.bg_widget                         = "#1b1b1b"
 theme.bg_urgent                         = "#ff0000"
 
-theme.fg_normal                         = "#fdfdfd"
-theme.fg_focus                          = "#526eb7"
+theme.fg_normal                         = "#EBDBB2"
+theme.fg_focus                          = "#83A598"
 theme.fg_urgent                         = "#dddddd"
 theme.fg_minimize                       = "#de463b"
 
 theme.border_width                      = 1
-theme.border_normal                     = "#333333"
-theme.border_focus                      = "#526eb7"
+theme.border_normal                     = "#282828"
+theme.border_focus                      = "#1b1b1b"
 theme.border_marked                     = "#91231c"
 
 

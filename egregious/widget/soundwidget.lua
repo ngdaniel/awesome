@@ -16,8 +16,8 @@ local function make_button(args)
     local w = wibox.widget.background()
     local icon = wibox.widget.imagebox()
     w:set_widget(icon)
-    w:set_bg(theme.bg_normal) -- TODO: make replacable
-    icon:set_image(theme.soundwidget_icon) -- TODO: make replacable
+    w:set_bg(theme.bg_normal)
+    icon:set_image(theme.soundwidget_icon)
     return w
 end
 
@@ -28,9 +28,9 @@ function soundwidget.new(args)
     local text = wibox.widget.textbox()
     vicious.register (icon, vicious.widgets.volume, function (widget, args)
         icon:set_image(theme.soundwidget_icon)
-        text:set_markup("" .. args[1])
+        text:set_markup(args[1] .. "%")
         return args[1]
-    end, 0.2, "Master")
+    end, 5, "Master")
     w:add(icon)
     w:add(wibox.layout.margin(text, 3, 3))
     return wibox.layout.margin(w, 4, 4)

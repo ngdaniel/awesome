@@ -1,6 +1,6 @@
 require("beautiful")
 
---mywibox     = {}
+mywibox     = {}
 mylayoutbox = {}
 mytaglist   = {}
 mytasklist  = {}
@@ -15,19 +15,27 @@ mytaglist.buttons = awful.util.table.join(
   awful.button({        }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
 
 )
-
 mytasklist.buttons = awful.util.table.join(
-
-  awful.button({}, 4, function ()
+  awful.button({ }, 1, function (c)
+    if c == client.focus then
+      c.minimized = true
+    else
+      c.minimized = false
+      if not c:isvisible() then
+        awful.tag.viewonly(c:tags()[1])
+      end
+      client.focus = c
+      c:raise()
+    end
+  end),
+  awful.button({ }, 4, function ()
     awful.client.focus.byidx(1)
     if client.focus then client.focus:raise() end
   end),
-  awful.button({}, 5, function ()
+  awful.button({ }, 5, function ()
     awful.client.focus.byidx(-1)
     if client.focus then client.focus:raise() end
-  end)
-
-)
+  end))
 
 for s = 1, screen.count() do
   mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -41,16 +49,22 @@ for s = 1, screen.count() do
   ))
 
   mytaglist[s]  = awful.widget.taglist( s, awful.widget.taglist.filter.all, mytaglist.buttons)
-  mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.focused, mytasklist.buttons)
+  mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
   
---mywibox[s] = awful.wibox({position="bottom", height=beautiful.menu_height, 
---  screen=s, border_width=0, border_color=beautiful.bg_focus
---})
+mywibox[s] = awful.wibox({position="top", height=beautiful.menu_height, 
+  screen=s, border_width=0, border_color=beautiful.bg_focus
+})
 
   local left_layout = wibox.layout.fixed.horizontal()
+  left_layout:add(launcher)
   left_layout:add(mytaglist[s])
 
   local right_layout = wibox.layout.fixed.horizontal({bg=beautiful.bg_focus})
+  right_layout:add(datewidget)
+  right_layout:add(wifiwidget)
+  right_layout:add(cpuwidget)
+  right_layout:add(soundwidget)
+  right_layout:add(battwidget)
   right_layout:add(mylayoutbox[s])
 
   local middle_layout = wibox.layout.flex.horizontal()
@@ -61,5 +75,5 @@ for s = 1, screen.count() do
   layout:set_middle(middle_layout)
   layout:set_right(right_layout)
 
---mywibox[s]:set_widget(layout)
+mywibox[s]:set_widget(layout)
 end
