@@ -60,9 +60,11 @@ mywibox[s] = awful.wibox({position="top", height=beautiful.menu_height,
   left_layout:add(mytaglist[s])
 
   local right_layout = wibox.layout.fixed.horizontal({bg=beautiful.bg_focus})
+  --right_layout:add(weatherwidget)
+  --right_layout:add(musicwidget)
   right_layout:add(datewidget)
   right_layout:add(wifiwidget)
-  right_layout:add(cpuwidget)
+  --right_layout:add(cpuwidget)
   right_layout:add(soundwidget)
   right_layout:add(battwidget)
   right_layout:add(mylayoutbox[s])

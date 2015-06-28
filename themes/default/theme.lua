@@ -7,8 +7,8 @@ tag_dir                                 = dir .. "taglist/" .. "/"
 layout_dir                              = dir .. "layouts/" .. "/"
 widget_dir                              = dir .. "widgets/" .. "/" 
 
-theme.font                              = "DejaVu Sans Mono 11px"
-theme.wallpaper                         = dir .. "wallpaper.jpg"
+theme.font                              = "Terminus 11px"
+theme.wallpaper                         = dir .. "wallpaper.png"
 theme.menu_height                       = 15
 
 theme.bg_normal                         = "#282828"
@@ -23,7 +23,7 @@ theme.fg_minimize                       = "#de463b"
 
 theme.border_width                      = 1
 theme.border_normal                     = "#282828"
-theme.border_focus                      = "#1b1b1b"
+theme.border_focus                      = "#83A598"
 theme.border_marked                     = "#91231c"
 
 
@@ -48,6 +48,9 @@ theme.soundwidget_icon                  = widget_dir .. "sound.png"
 theme.soundwidget_icon_focus            = widget_dir .. "sound_focus.png"
 theme.wifiwidget_icon                   = widget_dir .. "wifi.png"
 theme.cpuwidget_icon                    = widget_dir .. "cpu.png"
+theme.musicwidget_icon                  = widget_dir .. "music.png"
+theme.datewidget_icon                  = widget_dir .. "date.png"
+theme.weatherwidget_icon                  = widget_dir .. "weather.png"
 
 theme.layout_fairh                      = layout_dir .. "fairh.png"
 theme.layout_fairv                      = layout_dir .. "fairv.png"

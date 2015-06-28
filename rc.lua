@@ -8,7 +8,6 @@ beautiful = require("beautiful")
 naughty = require("naughty")
 menubar = require("menubar")
 egregious = require("egregious")
-
 -- globals
 config_dir = awful.util.getdir("config")
 
@@ -34,3 +33,7 @@ require("widgets")
 require("create")
 require("bindings")
 require("client")
+-- weather
+-- require('weather')
+--  forecast = widget({ type = "textbox", name = "weather" })
+--  weather.register(forecast, 98105)

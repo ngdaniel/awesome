@@ -30,7 +30,7 @@ function soundwidget.new(args)
         icon:set_image(theme.soundwidget_icon)
         text:set_markup(args[1] .. "%")
         return args[1]
-    end, 5, "Master")
+    end, 0.2, "Master")
     w:add(icon)
     w:add(wibox.layout.margin(text, 3, 3))
     return wibox.layout.margin(w, 4, 4)

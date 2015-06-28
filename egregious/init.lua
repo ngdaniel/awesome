@@ -8,5 +8,7 @@ return
         wifiwidget = require("egregious.widget.wifiwidget"),
         cpuwidget = require("egregious.widget.cpuwidget"),
         datewidget = require("egregious.widget.datewidget")
+        --musicwidget = require("egregious.widget.musicwidget"),
+        --weatherwidget = require("egregious.widget.weatherwidget")
     }
 }

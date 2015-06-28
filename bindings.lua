@@ -9,6 +9,8 @@ root.buttons(awful.util.table.join(
 
 globalkeys = awful.util.table.join(
 
+  awful.key({ modkey,           }, "q", function () awful.util.spawn("archey", true) end),
+
 -- window selection
   awful.key({ modkey,           }, "j", function () awful.client.focus.byidx( 1) end),
   awful.key({ modkey,           }, "k", function () awful.client.focus.byidx(-1) end),
@@ -77,6 +79,11 @@ for i = 1, 9 do
       local screen = mouse.screen
       local tag = awful.tag.gettags(screen)[i]
       if tag then awful.tag.viewonly(tag) end
+      c = awful.client.getmaster()
+      if c then
+        client.focus = c
+        c:raise()
+      end
     end),
     awful.key({ modkey, "Control" }, "#" .. i + 9, function ()
       local screen = mouse.screen
